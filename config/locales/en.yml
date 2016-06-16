@@ -29,3 +29,12 @@ en:
     logout: "Logout"
     account: "Account"
     login: "Login"
+  user:
+    signup: "Sign up"
+    btn_create: "Create user"
+    create_user_success: "Create user success.!"
+    destroy_success: "Destroy success.!"
+    remember: "Remember"
+  shared:
+    error: "error"
+  sessons:
