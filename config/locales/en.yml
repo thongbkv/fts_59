@@ -21,9 +21,11 @@
 
 en:
   hello: "Hello world"
-  static_page:
+  static_pages:
     title: "Trainning Framgia"
     home: "Home"
     profile: "Profile"
+    setting: "Setting"
     logout: "Logout"
+    account: "Account"
     login: "Login"
