@@ -29,6 +29,7 @@ en:
     logout: "Logout"
     account: "Account"
     login: "Login"
+    login_error: "Please login."
   user:
     signup: "Sign up"
     btn_create: "Create user"
@@ -37,12 +38,20 @@ en:
     remember: "Remember"
   shared:
     error: "error"
+    isadmin: "Welcome admin"
   admin:
     static_pages:
       home: "Framgia Test"
       admin: "Admin"
       search: "Search"
+      login_rror: "You not admin."
   feature:
-    subjects: "Subjects"
-    questions: "Questions"
+    subjects:
+      name:  "Subjects"
+      create: "Create subject"
+      create_error: "Create subject error."
+      create_success: "Create subject success."
+    questions:
+      name: "Questions"
     users: "Users"
+    error: "Error!"
