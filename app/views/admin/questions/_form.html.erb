@@ -1,0 +1,26 @@
+<%= form_for [:admin, @question] do |f| %>
+  <%= render "shared/error_messages", object: @question %>
+
+  <%= f.label :subject %>
+  <%= f.select :subject_id, @subjects.collect {|subject| [subject.name, subject.id]},
+    {include_blank: false}, {class: "form-control"} %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, class: "form-control" %>
+
+  <%= f.label :question_type %>
+  <%= f.select :question_type, Settings.question_type,
+    {include_blank: false}, id: "question_type", class: "form-control width-question-type" %>
+
+  <%= f.label :answers %>
+  <%= f.fields_for :answers, @answers do |builder| %>
+    <%= render "answer_fields", f: builder %>
+    <br/>
+  <% end %>
+
+  <p>
+    <%= link_to_add_fields f, :answers %>
+  </p>
+
+  <%= f.submit t "layouts.create_subject", class: "btn btn-primary" %>
+<% end %>
