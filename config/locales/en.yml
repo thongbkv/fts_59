@@ -37,4 +37,12 @@ en:
     remember: "Remember"
   shared:
     error: "error"
-  sessons:
+  admin:
+    static_pages:
+      home: "Framgia Test"
+      admin: "Admin"
+      search: "Search"
+  feature:
+    subjects: "Subjects"
+    questions: "Questions"
+    users: "Users"
