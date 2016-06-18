@@ -39,12 +39,13 @@ en:
   shared:
     error: "error"
     isadmin: "Welcome admin"
+    delete: "Delete"
   admin:
     static_pages:
       home: "Framgia Test"
       admin: "Admin"
       search: "Search"
-      login_rror: "You not admin."
+      login_error: "You not admin."
   feature:
     subjects:
       name:  "Subjects"
@@ -53,5 +54,10 @@ en:
       create_success: "Create subject success."
     questions:
       name: "Questions"
+      create_success: "Create questions success."
+      create_error: "Create questions error."
     users: "Users"
     error: "Error!"
+  layouts:
+    create_subject: "Create subject"
+    title: "Title"

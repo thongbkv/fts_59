@@ -15,3 +15,44 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+function remove_fields(link) {
+  $(link).prev('input[type=hidden]').val('1')
+  var parent = $(link).parents('.fields')
+  $(link).closest('.fields').hide();
+  parent.hide()
+  parent.find('input:radio').prev().val(false)
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp('new_' + association, 'g')
+  $(link).parent().before(content.replace(regexp, new_id))
+}
+
+var checkbox
+checkbox = function () {
+  $('body').on('DOMNodeInserted', function () {
+    set_value_checkbox();
+  });
+
+  $('form').on('click', '.remove_fields', function(event){
+    $(this).prev('input[type=hidden]').val(true);
+    $(this).parent().parent().parent().hide();
+    event.preventDefault();
+  });
+}
+
+function set_value_checkbox () {
+  $('.is_correct').click(function () {
+    if ($('#question_type').val() == 'single') {
+      $('.is_correct').not(this).attr('checked', false);
+    }
+  })
+  $('#question_type').on('change', function() {
+    $(".is_correct").attr('checked', false);
+  });
+}
+
+$(document).ready(checkbox)
+$(document).on('page:load', checkbox)
