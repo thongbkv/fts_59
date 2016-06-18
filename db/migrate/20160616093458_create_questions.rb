@@ -3,7 +3,10 @@ class CreateQuestions < ActiveRecord::Migration
     create_table :questions do |t|
       t.string :content
       t.integer :question_type
+      t.integer :subject_id
+      t.integer :user_id
       t.integer :state
+
       t.references :subject, index: true, foreign_key: true
       t.references :user, index: true, foreign_key: true
 

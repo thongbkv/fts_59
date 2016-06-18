@@ -1,3 +1,4 @@
 question_type:
   single: "single"
   multiple: "multiple"
+finish: "finish"

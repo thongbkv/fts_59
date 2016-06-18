@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20160616094630) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "content"
-    t.boolean  "ís_correct"
+    t.boolean  "is_correct"
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -24,12 +24,11 @@ ActiveRecord::Schema.define(version: 20160616094630) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
 
   create_table "lessons", force: :cascade do |t|
-    t.integer  "status"
-    t.integer  "point"
-    t.integer  "user_id"
+    t.integer  "status",     default: 0
     t.integer  "subject_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "lessons", ["subject_id"], name: "index_lessons_on_subject_id"
@@ -37,21 +36,21 @@ ActiveRecord::Schema.define(version: 20160616094630) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "content"
-    t.integer  "type"
-    t.integer  "state"
+    t.integer  "question_type"
     t.integer  "subject_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "state"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "questions", ["subject_id"], name: "index_questions_on_subject_id"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "results", force: :cascade do |t|
-    t.integer  "answer_id"
-    t.integer  "question_id"
     t.integer  "lesson_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
