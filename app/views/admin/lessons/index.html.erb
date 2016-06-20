@@ -1,0 +1,6 @@
+<div class="col-md-12.col-md-offset-0">
+  <%= select_tag "subject_id", options_from_collection_for_select(@subjects,
+    "id", "name"),class: "form-control", id: "lesson_subject_id" %>
+  <hr>
+  <div class="list_lessons"></div>
+</div>

@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   resources :lessons
   namespace :admin do
     root "users#index"
+    resources :lessons
     resources :users, only: :index
-    resources :subjects, only: [:new, :create]
+    resources :subjects, only: [:new, :create, :show]
+    resources :subjects do
+      resources :lessons, only: :show
+    end
     resources :questions do
       resources :answers, only: [:new, :create]
     end
