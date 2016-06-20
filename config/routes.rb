@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :users, only: [:new, :create]
+  resources :lessons
   namespace :admin do
     root "users#index"
     resources :users, only: :index

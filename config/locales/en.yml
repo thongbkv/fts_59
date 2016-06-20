@@ -36,6 +36,15 @@ en:
     create_user_success: "Create user success.!"
     destroy_success: "Destroy success.!"
     remember: "Remember"
+    start: "Start"
+    subject: "Subject"
+    status: "Status"
+    duration: "Duration"
+    question_number: "Question Number"
+    point: "Point"
+    lesson:
+      title: "Lesson"
+      create: "Create lesson"
   shared:
     error: "error"
     isadmin: "Welcome admin"
@@ -46,6 +55,7 @@ en:
       admin: "Admin"
       search: "Search"
       login_error: "You not admin."
+    name: "Admin"
   feature:
     subjects:
       name:  "Subjects"
@@ -58,6 +68,10 @@ en:
       create_error: "Create questions error."
     users: "Users"
     error: "Error!"
+  create_lesson_success: "Create lesson success."
+  create_lesson_fail: "Create lesson fail."
+  update_lesson_success: "Update lesson success."
+  update_lesson_fail: "Update lesson fail."
   layouts:
     create_subject: "Create subject"
     title: "Title"
