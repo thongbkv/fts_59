@@ -1,8 +1,13 @@
 class Admin::SubjectsController < Admin::BasesController
   before_action :logged_in_user, :require_admin
+  before_action :load_lesson, only: :show
 
   def index
     @subjects = Subject.paginate page: params[:page]
+  end
+
+  def show
+    @lessons = @subject.lessons
   end
 
   def new
@@ -22,5 +27,9 @@ class Admin::SubjectsController < Admin::BasesController
   private
   def subject_params
     params.require(:subject).permit :name, :question_number, :duration
+  end
+
+  def load_lesson
+    @subject = Subject.find_by id: params[:id]
   end
 end

@@ -54,5 +54,20 @@ function set_value_checkbox () {
   });
 }
 
+function get_lessons () {
+  var lesson_id = $('#lesson_subject_id').val();
+  $.ajax({
+    url: '/admin/subjects/' + lesson_id,
+    type: 'GET'
+  })
+}
+
 $(document).ready(checkbox)
 $(document).on('page:load', checkbox)
+
+$(document).ready(function(){
+  get_lessons();
+  $('#lesson_subject_id').on('change', function() {
+    get_lessons();
+  });
+});

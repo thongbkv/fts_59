@@ -1,0 +1,16 @@
+<div class="col-md-12 col-md-offset-0">
+  <%= form_for @lesson, html: {id: "submit-lesson"} do |f| %>
+    <ol>
+      <%= f.fields_for :results do |result| %>
+        <%= render "question", f: result %>
+      <% end %>
+    </ol>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <%= f.submit :save, class: "btn btn-primary btn-submit" %>
+        <%= f.submit :finish,
+          class: "btn btn-danger btn-submit pull-right finish-lesson" %>
+      </div>
+    </div>
+  <% end %>
+</div>
