@@ -1,5 +1,17 @@
-<div class="col-md-8 col-md-offset-1">
-  <h1 class="text-center" ><%= @lesson.subject.name %></h1>
-  <hr/>
-  <%= render "lesson" %>
+<div class="col-md-12 col-md-offset-0">
+  <%= form_for [:admin, @lesson] do |f| %>
+    <ol>
+      <%= hidden_field :status, {class: "status_question"} %>
+      <%= f.fields_for :results do |result_builder| %>
+        <%= render "question_result", result: result_builder %>
+      <% end %>
+    </ol>
+    <% if @lesson.unchecked? %>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+          <%= f.submit :finish, id: "finish_mark", class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>

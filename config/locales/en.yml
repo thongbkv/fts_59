@@ -40,10 +40,13 @@ en:
     subject: "Subject"
     lesson: "Lesson"
     status: "Status"
+    stt: "STT"
     edit: "Edit"
     duration: "Duration"
     question_number: "Question Number"
     point: "Point"
+    create_at: "Create at"
+    finish: "finish"
     lesson:
       title: "Lesson"
       create: "Create lesson"

@@ -17,6 +17,12 @@ class Lesson < ActiveRecord::Base
     end
   end
 
+  def get_point lesson_id
+    @point = Answer.is_correct_answers(lesson_id).count
+    @question_number = Lesson.find_by(id: lesson_id).subject.question_number
+    return @point, @question_number
+  end
+
   private
   def create_results
     self.questions << self.subject.questions.order("RANDOM()")

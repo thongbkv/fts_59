@@ -1,5 +1,6 @@
-class Admin::SubjectsController < Admin::BasesController
+class Admin::SubjectsController < ApplicationController
   before_action :logged_in_user, :require_admin
+  layout "admin"
   before_action :load_lesson, only: :show
 
   def index
@@ -7,7 +8,7 @@ class Admin::SubjectsController < Admin::BasesController
   end
 
   def show
-    @lessons = @subject.lessons
+    @lessons = @subject.lessons.order(created_at: :desc)
   end
 
   def new

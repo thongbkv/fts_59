@@ -1,0 +1,14 @@
+<li>
+  <%= result.object.question.content %>
+</li>
+<br>
+<% result.object.question.answers.each do |answer| %>
+  <% is_checked = result.object.question.check_answer_user_is_correct? result.object %>
+  <%= result.radio_button :answer_id, answer.id, {multiple: true, disabled: true} %>
+  <% if answer.is_correct? %>
+    <strong class="result_true"><%= answer.content %></strong><br/>
+  <% else %>
+    <%= answer.content %></br>
+  <% end %>
+<% end %>
+<br>

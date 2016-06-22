@@ -1,5 +1,10 @@
 <div class="col-md-8 col-md-offset-1">
   <h1 class="text-center" ><%= @lesson.subject.name %></h1>
+    <h3 class="text-center">
+      <% if @lesson.checked? %>
+        <%= @lesson.get_point @lesson.id %>
+      <% end %>
+    </h3>
   <hr/>
   <%= render "lesson" %>
 </div>

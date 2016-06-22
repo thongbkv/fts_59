@@ -7,6 +7,7 @@
   <hr>
   <table class="table table-striped table-hover table-style">
     <thead>
+      <th class="th-style"><p><%= t "user.create_at" %></p></th>
       <th class="th-style"><p><%= t "user.subject" %></p></th>
       <th class="th-style"><p><%= t "user.status" %></p></th>
       <th class="th-style"><p><%= t "user.duration" %></p></th>
@@ -17,11 +18,16 @@
     <tbody>
       <% @lessons.each do |lesson| %>
         <tr>
+          <td class="td_style"><%= lesson.created_at %></td>
           <td class="td_style"><%= lesson.subject.name %></td>
           <td class="td_style"><%= lesson.status %></td>
           <td class="td_style"><%= lesson.subject.duration %></td>
           <td class="td_style"><%= lesson.subject.question_number %></td>
-          <td class="td_style"><%= lesson.point %></td>
+          <% if lesson.checked? %>
+            <td class="td_style"><%= lesson.get_point lesson.id %></td>
+          <% elsif %>
+            <td class="td_style"> -- </td>
+          <% end %>
           <td class="td_style"><%= link_to t("user.start"), lesson_path(lesson) %></td>
         </tr>
       <% end %>
