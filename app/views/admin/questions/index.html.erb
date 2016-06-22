@@ -1,29 +1,26 @@
 <div class="row">
   <div class="col-md-10 col-offset-2">
-    <h2><%= t "controller.subject.list_subject" %></h2>
-    <%= link_to t("feature.subjects.create"), new_admin_subject_path %>
+    <h2><%= t "controller.question.list_question" %></h2>
+    <%= link_to t("layouts.create_question"), new_admin_question_path %>
     <table class="table table-striped table-hover">
       <thead>
-        <th><%= t "feature.subjects.name" %></th>
-        <th><%= t "feature.subjects.question_number" %></th>
-        <th><%= t "feature.subjects.duration" %></th>
+        <th><%= t "static_pages.questions.subject" %></th>
+        <th><%= t "static_pages.questions.content" %></th>
         <th><%= t "static_pages.questions.update" %></th>
         <th><%= t "static_pages.questions.delete" %></th>
       </thead>
       <tbody>
-        <% @subjects.each do |subject| %>
+        <% @questions.each do |question| %>
           <tr>
-            <td><%= subject.name %></td>
-            <td><%= subject.question_number %></td>
-            <td><%= subject.duration %></td>
+            <td><%= question.subject.name %></td>
+            <td><%= question.content %></td>
             <td>
-              <%= link_to [:edit,:admin, subject],
-                class: "btn btn-primary btn-xs" do %>
+              <%= link_to [:edit,:admin, question], class: "btn btn-primary btn-xs" do %>
                 <%= t "static_pages.questions.update" %>
               <% end %>
             </td>
             <td>
-              <%= link_to [:admin, subject], method: :delete,
+              <%= link_to [:admin, question], method: :delete,
                 data: {confirm: t("static_pages.questions.confirm")},
                 class: "btn btn-primary btn-xs" do %>
                 <%= t "static_pages.questions.delete" %>
