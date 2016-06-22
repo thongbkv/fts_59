@@ -70,4 +70,7 @@ $(document).ready(function(){
   $('#lesson_subject_id').on('change', function() {
     get_lessons();
   });
+  $('#finish_mark').on('click', function(){
+    $('.status_question').val("checked")
+  });
 });

@@ -10,4 +10,8 @@ class Question < ActiveRecord::Base
     allow_destroy: true
 
   enum question_type: [:single, :multiple]
+
+  def check_answer_user_is_correct? result
+    result.answer_id == answers.where(is_correct: true)
+  end
 end
