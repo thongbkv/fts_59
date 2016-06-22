@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :lessons
+  resources :questions, only: [:index, :new, :create]
   namespace :admin do
     root "users#index"
     resources :lessons

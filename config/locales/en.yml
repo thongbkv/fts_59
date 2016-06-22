@@ -29,6 +29,15 @@ en:
     logout: "Logout"
     account: "Account"
     login: "Login"
+    questions:
+      name: "Questions"
+      subject: "Subject"
+      content: "Content"
+      update: "Update"
+      delete: "Delete"
+      create_suggest_question: "Create suggest question"
+      list_questions: "List questions"
+      confirm: "Ban co chac chan muon xoa!"
     login_error: "Please login."
   user:
     signup: "Sign up"
@@ -38,7 +47,6 @@ en:
     remember: "Remember"
     start: "Start"
     subject: "Subject"
-    lesson: "Lesson"
     status: "Status"
     stt: "STT"
     edit: "Edit"
@@ -80,3 +88,4 @@ en:
   layouts:
     create_subject: "Create subject"
     title: "Title"
+    create_question: "Create question"
