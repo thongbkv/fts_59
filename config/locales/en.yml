@@ -75,6 +75,10 @@ en:
       create: "Create subject"
       create_error: "Create subject error."
       create_success: "Create subject success."
+      update_error: "Update subject error."
+      update_success: "Update subject success."
+      delete_error: "Delete subject error."
+      delete_success: "Delete subject success."
     questions:
       name: "Questions"
       create_success: "Create questions success."
