@@ -7,8 +7,11 @@
           <% if current_user.is_admin? %>
             <li><%= link_to t("admin.static_pages.admin"), admin_root_path %></li>
           <% end %>
+          <li><%= link_to t("static_pages.questions.name"), questions_path %></li>
+          <li><%= link_to t("user.lesson.title"), lessons_path %></li>
           <li class="dropdown">
-            <%= link_to "#", class: "dropdown-toggle", "data-toggle": :dropdown do %>
+            <%= link_to "#", class: "dropdown-toggle",
+              "data-toggle": :dropdown do %>
               <%= t "static_pages.account" %> <b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
