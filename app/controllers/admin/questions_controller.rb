@@ -18,7 +18,7 @@ class Admin::QuestionsController < ApplicationController
     @question.user = current_user
     if @question.save
       flash[:success] = t "feature.questions.create_success"
-      redirect_to new_admin_question_path
+      redirect_to admin_questions_path
     else
       flash[:danger] = t "feature.questions.create_error"
       render :new
@@ -47,7 +47,7 @@ class Admin::QuestionsController < ApplicationController
   private
   def question_params
     params.require(:question).permit :content, :question_type, :state, :subject_id,
-      :user_id, answers_attributes: [:id, :content, :is_correct, :_destroy]
+     answers_attributes: [:id, :content, :is_correct, :_destroy]
   end
 
   def load_subjects
@@ -58,3 +58,4 @@ class Admin::QuestionsController < ApplicationController
     @question = Question.find_by id: params[:id]
   end
 end
+

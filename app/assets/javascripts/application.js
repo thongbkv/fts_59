@@ -62,11 +62,27 @@ function get_lessons () {
   })
 }
 
-$(document).ready(checkbox)
-$(document).on('page:load', checkbox)
+function set_state_question () {
+  $('#approve').on('click', function(){
+    $('#question_state').val("approve");
+  });
+  $('#unapprove').on('click', function(){
+    $('#question_state').val("unapprove");
+  });
+  $('.state_question').on('click', function(){
+    $('#question_state').val("approve");
+  });
+}
+
+$(document).ready(checkbox);
+$(document).on('page:load', checkbox);
+$(document).on('page:load', set_value_checkbox);
+$(document).on('page:load', set_state_question);
 
 $(document).ready(function(){
+  set_value_checkbox();
   get_lessons();
+  set_state_question();
   $('#lesson_subject_id').on('change', function() {
     get_lessons();
   });
@@ -74,3 +90,4 @@ $(document).ready(function(){
     $('.status_question').val("checked")
   });
 });
+

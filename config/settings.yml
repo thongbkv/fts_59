@@ -2,4 +2,6 @@ question_type:
   single: "single"
   multiple: "multiple"
 finish: "finish"
+approve: "approve"
+unapprove: "unapprove"
 per_page: 10
