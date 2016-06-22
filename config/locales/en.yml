@@ -85,6 +85,8 @@ en:
   create_lesson_fail: "Create lesson fail."
   update_lesson_success: "Update lesson success."
   update_lesson_fail: "Update lesson fail."
+  update_question_success: "Update question success."
+  update_question_fail: "Update question fail."
   layouts:
     create_subject: "Create subject"
     title: "Title"
