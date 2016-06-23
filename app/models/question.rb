@@ -5,6 +5,8 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :results
 
+  validates :content, presence: true, length: {maximum: 200}
+
   accepts_nested_attributes_for :answers,
     reject_if: proc {|attributes| attributes[:content].blank?},
     allow_destroy: true

@@ -1,15 +1,19 @@
 <div class="row">
-  <div class="col-md-6">
-    <%= f.label :option %>
+  <%= f.label :option, class: "option_style" %>
+  <div class="col-md-12">
+    <div class="col-md-8">
     <%= f.text_field :content, placeholder: t("layouts.title"), class: " form-control" %>
-  </div>
-  <div class="col-md-6 col-md-offset-1 ">
-    <%= f.check_box :is_correct, class: "form-control is_correct" %>
-  </div>
-   <div class="input-field col s1">
-    <i class="material-icons">
-      <%= f.hidden_field :_destroy %>
-      <%= link_to t("shared.delete"), "#", class: "remove_fields choose-danger" %>
-    </i>
+    </div>
+    <div class="check-box-remove">
+      <div class="col-md-3">
+        <%= f.check_box :is_correct, class: "form-control is_correct" %>
+      </div>
+      <div class="col-md-1">
+        <i class="material-icons">
+          <%= f.hidden_field :_destroy %>
+          <%= link_to t("shared.delete"), "#", class: "remove_fields choose-danger" %>
+        </i>
+      </div>
+    </div>
   </div>
 </div>

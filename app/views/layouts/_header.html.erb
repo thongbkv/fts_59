@@ -16,8 +16,9 @@
               <%= t "static_pages.account" %> <b class="caret"></b>
             <% end %>
             <ul class="dropdown-menu">
-              <li><%= link_to t("static_pages.profile"), "" %></li>
-              <li><%= link_to t("static_pages.settings"), "" %></li>
+              <li><%= link_to t("static_pages.profile"), current_user %></li>
+              <li><%= link_to t("static_pages.settings"),
+                edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to t("static_pages.log_out"), logout_path, method: "delete" %></li>
             </ul>
