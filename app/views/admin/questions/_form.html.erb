@@ -1,6 +1,8 @@
 <%= form_for [:admin, @question] do |f| %>
   <%= render "shared/error_messages", object: @question %>
 
+  <%= f.hidden_field :state %>
+
   <%= f.label :subject %>
   <%= f.select :subject_id, @subjects.collect {|subject| [subject.name, subject.id]},
     {include_blank: false}, {class: "form-control"} %>
@@ -22,5 +24,12 @@
     <%= link_to_add_fields f, :answers %>
   </p>
 
-  <%= f.submit t "layouts.create_subject", class: "btn btn-primary" %>
+  <% if @question.new_record? %>
+    <%= f.submit :submit, class: "btn btn-primary state_question" %>
+  <% else %>
+    <%= f.submit :approve, class: "btn btn-primary",
+      id: "approve" %>
+    <%= f.submit :unapprove, class: "btn btn-primary",
+      id: "unapprove" %>
+  <% end %>
 <% end %>

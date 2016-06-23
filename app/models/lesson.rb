@@ -25,7 +25,7 @@ class Lesson < ActiveRecord::Base
 
   private
   def create_results
-    self.questions << self.subject.questions.order("RANDOM()")
+    self.questions << self.subject.questions.question_random.order("RANDOM()")
       .limit(self.subject.question_number)
   end
 end

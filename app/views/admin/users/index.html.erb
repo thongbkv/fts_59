@@ -1,2 +1,36 @@
-<% provide :title, t("static_pages.home") %>
-<h1><%= t "static_pages.home" %></h1>
+<div class="row">
+  <div class="col-md-10 col-offset-2">
+    <h2><%= t "controller.question.list_question" %></h2>
+    <%= link_to t("layouts.create_question"), new_admin_question_path %>
+    <table class="table table-striped table-hover">
+      <thead>
+        <th><%= t "static_pages.questions.subject" %></th>
+        <th><%= t "static_pages.questions.content" %></th>
+        <th><%= t "static_pages.questions.state" %></th>
+        <th><%= t "static_pages.questions.update" %></th>
+        <th><%= t "static_pages.questions.delete" %></th>
+      </thead>
+      <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.subject.name %></td>
+            <td><%= question.content %></td>
+            <td><%= question.state %></td>
+            <td>
+              <%= link_to [:edit,:admin, question], class: "btn btn-primary btn-xs" do %>
+                <%= t "static_pages.questions.update" %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to [:admin, question], method: :delete,
+                data: {confirm: t("static_pages.questions.confirm")},
+                class: "btn btn-primary btn-xs" do %>
+                <%= t "static_pages.questions.delete" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

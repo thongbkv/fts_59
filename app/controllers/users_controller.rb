@@ -7,7 +7,11 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       flash[:success] = t "user.create_user_success"
-      redirect_to root_url
+      if current_user.is_admin?
+        redirect_to admin_lessons_path
+      elsif
+        redirect_to root_url
+      end
     else
       render :new
     end

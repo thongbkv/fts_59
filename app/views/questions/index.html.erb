@@ -7,6 +7,7 @@
       <thead>
         <th><%= t "static_pages.questions.subject.subject" %></th>
         <th><%= t "static_pages.questions.content" %></th>
+        <th><%= t "static_pages.questions.state" %></th>
         <th><%= t "static_pages.questions.update" %></th>
         <th><%= t "static_pages.questions.delete" %></th>
       </thead>
@@ -15,10 +16,12 @@
           <tr>
             <td><%= question.subject.name %></td>
             <td><%= question.content %></td>
+            <td><%= question.state %></td>
             <td>
-              <%= link_to [:edit, question],
+              <%= link_to_if question.wating?,
+                t("static_pages.questions.update"),
+                edit_question_path(question),
                 class: "btn btn-primary btn-xs" do %>
-                <%= t "static_pages.questions.update" %>
               <% end %>
             </td>
             <td>

@@ -12,6 +12,9 @@ class Question < ActiveRecord::Base
   enum question_type: [:single, :multiple]
   enum state: [:wating, :unapprove, :approve]
 
+  scope :suggest_questions_user, ->(user_id){where.not user_id: user_id}
+  scope :question_random, ->{where state: 2}
+
   def check_answer_user_is_correct? result
     result.answer_id == answers.where(is_correct: true)
   end
