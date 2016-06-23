@@ -4,9 +4,11 @@ class Lesson < ActiveRecord::Base
   has_many :results
   has_many :questions, through: :results
 
+  validate :lesson_min, on: :create
+
   enum status: [:start, :testing, :unchecked, :checked]
 
-  after_create :create_results
+  before_create :create_results
 
   accepts_nested_attributes_for :results
 
@@ -27,5 +29,11 @@ class Lesson < ActiveRecord::Base
   def create_results
     self.questions << self.subject.questions.question_random.order("RANDOM()")
       .limit(self.subject.question_number)
+  end
+
+  def lesson_min
+    if self.subject.questions.size < self.subject.question_number
+      errors.add(:base, "oke")
+    end
   end
 end

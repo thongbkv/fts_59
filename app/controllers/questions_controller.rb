@@ -39,10 +39,10 @@ class QuestionsController < ApplicationController
 
   def destroy
     if @question.destroy
-      flash[:success] = t "controller.question.delete_success"
+      flash[:success] = t "delete_question_success"
       redirect_to questions_path
     else
-      flash[:notice] = t "controller.question.delete_error"
+      flash[:notice] = t "delete_question_fail"
       redirect_to :back
     end
   end

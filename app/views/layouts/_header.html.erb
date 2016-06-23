@@ -20,11 +20,12 @@
               <li><%= link_to t("static_pages.settings"),
                 edit_user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to t("static_pages.log_out"), logout_path, method: "delete" %></li>
+              <li><%= link_to t("static_pages.logout"), logout_path, method: "delete" %></li>
             </ul>
           </li>
         <% else %>
-          <li><%= link_to t("static_pages.log_in"), login_path %></li>
+          <li><%= link_to t("static_pages.login"), login_path %></li>
+          <li><%= link_to t("static_pages.signup"), new_user_path %></li>
         <% end %>
       </ul>
     </nav>

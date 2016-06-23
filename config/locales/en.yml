@@ -29,6 +29,7 @@ en:
     logout: "Logout"
     account: "Account"
     login: "Login"
+    signup: "Sign up"
     questions:
       name: "Questions"
       subject: "Subject"
@@ -95,7 +96,6 @@ en:
     users: "Users"
     error: "Error!"
   create_lesson_success: "Create lesson success."
-  create_lesson_fail: "Create lesson fail."
   update_lesson_success: "Update lesson success."
   update_lesson_fail: "Update lesson fail."
   update_question_success: "Update question success."
@@ -108,3 +108,8 @@ en:
     create_question: "Create question"
     approve: "Approve"
     unapprove: "Unapprove"
+  add_anwser: "Add answer"
+  message: "Ban phai chon 1 dap an dung."
+  create_lesson_fail: 'Subject not enough %{number} questions!'
+  time:
+    type: "%d/%m/%y"

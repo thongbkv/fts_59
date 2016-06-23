@@ -5,7 +5,7 @@ class LessonsController < ApplicationController
 
   def index
     @lesson = Lesson.new
-    @lessons = current_user.lessons.order created_at: :desc
+    @lessons = current_user.lessons.page(params[:page]).per(10)
   end
 
   def show
@@ -18,7 +18,7 @@ class LessonsController < ApplicationController
     if @lesson.save
       flash[:success] = t "create_lesson_success"
     else
-      flash[:danger] = t "create_lesson_fail"
+      # flash[:danger] = "failded" + @lesson.errors.messages[:lesson].to_s
     end
     redirect_to lessons_path
   end

@@ -1,6 +1,6 @@
 class Admin::QuestionsController < ApplicationController
   before_action :logged_in_user, :require_admin
-  before_action :load_subjects, only: [:new, :edit]
+  before_action :load_subjects, only: [:new, :edit, :create]
   before_action :load_question, only: [:edit, :update, :destroy]
   layout "admin"
 

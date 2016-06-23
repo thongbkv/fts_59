@@ -5,7 +5,7 @@
         <%= render "question", f: result %>
       <% end %>
     </ol>
-    <% if @lesson.checked? || @lesson.unchecked? %>
+    <% if @lesson.testing? || @lesson.start? %>
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <%= f.submit :save, class: "btn btn-primary btn-submit" %>

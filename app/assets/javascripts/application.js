@@ -37,8 +37,7 @@ checkbox = function () {
   });
 
   $('form').on('click', '.remove_fields', function(event){
-    $(this).prev('input[type=hidden]').val(true);
-    $(this).parent().parent().parent().hide();
+    $(this).closest(".row").remove();
     event.preventDefault();
   });
 }
@@ -74,20 +73,46 @@ function set_state_question () {
   });
 }
 
-$(document).ready(checkbox);
-$(document).on('page:load', checkbox);
-$(document).on('page:load', set_value_checkbox);
-$(document).on('page:load', set_state_question);
+$(document).on('page:load', function(){
+  checkbox();
+  set_value_checkbox();
+  set_state_question();
+});
+
+$(document).on('click', function(){
+  get_lessons();
+})
+// $(document).on('page:load', checkbox);
+// $(document).on('page:load', set_value_checkbox);
+// $(document).on('page:load', set_state_question);
 
 $(document).ready(function(){
+  checkbox();
   set_value_checkbox();
-  get_lessons();
   set_state_question();
-  $('#lesson_subject_id').on('change', function() {
-    get_lessons();
-  });
+  get_lessons();
+
   $('#finish_mark').on('click', function(){
     $('.status_question').val("checked")
   });
 });
+$(document).on('click', '#approve, #unapprove, #create_question, #user_create_question',
+    function(e) {
+    if($("[type='checkbox']:checked").length == 0) {
+      alert("Ban phai chon 1 dap an dung!");
+      e.preventDefault();
+    }
+})
 
+$(document).on('page:load', function () {
+  if($('#question_index').length > 0)
+  {
+    get_lessons();
+  }
+
+  if($('#admin_new_question_validate').length) {
+    $('#create_question').on('click', function(){
+
+    });
+  }
+})

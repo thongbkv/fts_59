@@ -25,7 +25,7 @@
   </p>
 
   <% if @question.new_record? %>
-    <%= f.submit :submit, class: "btn btn-primary state_question" %>
+    <%= f.submit :submit, class: "btn btn-primary state_question", id: "create_question" %>
   <% else %>
     <%= f.submit :approve, class: "btn btn-primary",
       id: "approve" %>
